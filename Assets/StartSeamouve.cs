@@ -7,10 +7,20 @@ public class StartSeamouve : MonoBehaviour
     
     public GameObject Sea;
     public int GameSpeed;
+    public bool CanStartGame;
+
+
+    private void Start()
+    {
+        CanStartGame = GetComponent<StartButton>().CanStartGame;
+    }
 
     void Update()
     {
-        this.transform.Translate(Vector3.back * GameSpeed);
+        if (CanStartGame == true)
+        {
+            this.transform.Translate(Vector3.back * GameSpeed);
+        }
     }
 
 }
